@@ -11,7 +11,7 @@ export const Hero = () => {
             </div>
             <div className="relative z-10 flex flex-col justify-center px-4 m-5 text-center">
                 <motion.h1
-                    className="mb-6 text-xl font-bold tracking-tight text-white lg:text-4xl md:text-6xl"
+                    className="mb-6 text-xl font-bold tracking-tight text-white md:text-6xl"
                     initial={{ opacity: 0, y: -50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{
