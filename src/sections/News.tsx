@@ -4,6 +4,7 @@ import NewsArticle from "../types/NewsType"
 import { motion } from "framer-motion"
 
 
+
 export const News = () => {
 
     const [news, setNews] = useState<NewsArticle[]>([])
@@ -13,23 +14,44 @@ export const News = () => {
     useEffect(() => {
         const fetchNews = async () => {
             try {
-                const response = await fetch('https://gnews.io/api/v4/search?q=criptomonedas&token=8fd22376f395b305ff981d629fc2f7d6&max=3&lang=es');
-                if (!response.ok) {
-                    throw new Error('Error al obtener los datos');
+                // Obtener datos del localStorage
+                const cachedData = localStorage.getItem('newsData');
+                const cachedTime = localStorage.getItem('newsDataTime');
+                const now = new Date().getTime();
+
+                // Verificar si los datos en localStorage son válidos (menos de 24 horas)
+                if (cachedData && cachedTime && now - parseInt(cachedTime, 10) < 24 * 60 * 60 * 1000) {
+                    const parsedNews = JSON.parse(cachedData);
+                    setNews(parsedNews);
+                    return;
                 }
+
+                // Si no hay datos válidos, hacer la solicitud a la API
+                const response = await fetch(
+                    'https://gnews.io/api/v4/search?q=criptomonedas&token=8fd22376f395b305ff981d629fc2f7d6&max=3&lang=es'
+                );
+
+                if (!response.ok) {
+                    throw new Error('Error al obtener los datos de la API');
+                }
+
                 const data = await response.json();
                 setNews(data.articles);
+
+                // Guardar los datos y la marca de tiempo en localStorage
+                localStorage.setItem('newsData', JSON.stringify(data.articles));
+                localStorage.setItem('newsDataTime', now.toString());
             } catch (error) {
                 if (error instanceof Error) {
-                    setError(error.message + ", intente más tarde. Probablemente se hayan superado las consultas diarias de API");
+                    setError(error.message + ', intente más tarde. Probablemente se hayan superado las consultas diarias de API.');
                 } else {
-                    setError("Ocurrió un error inesperado, intente más tarde.");
+                    setError('Ocurrió un error inesperado, intente más tarde.');
                 }
             }
         };
-        fetchNews();
-    }, [])
 
+        fetchNews();
+    }, []);
 
         return (
         <motion.section

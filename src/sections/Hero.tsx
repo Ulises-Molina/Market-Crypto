@@ -9,7 +9,7 @@ export const Hero = () => {
             >
                 <div className="absolute inset-0 min-w-[440px] bg-black/50" />
             </div>
-            <div className="relative z-10 flex flex-col justify-center px-4 text-center">
+            <div className="relative z-10 flex flex-col justify-center px-4 m-5 text-center">
                 <motion.h1
                     className="mb-6 text-4xl font-bold tracking-tight text-white md:text-6xl"
                     initial={{ opacity: 0, y: -50 }}

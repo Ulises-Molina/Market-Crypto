@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import {motion } from "framer-motion"
+import { motion } from "framer-motion"
 
 export function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false)
@@ -19,17 +19,18 @@ export function Navbar() {
             element.scrollIntoView({ behavior: "smooth" })
         }
     }
-                
+
 
     return (
         <motion.div
-        initial={{ opacity: 0, y: 50, x: -210 }}
-                    animate={{ opacity: 1, y: 0, x: -210 }}
-                    transition={{ duration: 1, ease: 'easeOut', delay: 0.3 }}
-        className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 px-6 py-2 rounded-full transition-all duration-300 border border-white/10 ${isScrolled
-                ? 'bg-black/80 backdrop-blur-md shadow-lg shadow-black/20'
-                : 'bg-white/5 backdrop-blur-md'
-            }`}>
+            initial={{ opacity: 0, y: 50, x: '-50%' }}
+            animate={{ opacity: 1, y: 0, x: '-50%' }}
+            transition={{ duration: 0.8, ease: 'easeInOut' }}
+            className={`fixed top-4 left-1/2 z-50 px-6 py-2 rounded-full transition-all duration-300 border border-white/10 ${isScrolled
+                    ? 'bg-black/80 backdrop-blur-md shadow-lg shadow-black/20'
+                    : 'bg-white/5 backdrop-blur-md'
+                }`}
+        >
             <ul className="flex items-center gap-2 md:gap-12">
                 <li>
                     <button
