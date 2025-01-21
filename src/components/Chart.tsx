@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Line } from 'react-chartjs-2';
-import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
+import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend,Filler } from 'chart.js';
 import { ChartData, ChartOptions } from 'chart.js'; // Importamos los tipos necesarios
 
 // Registrar los componentes necesarios para Chart.js
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend,Filler);
 
 const CryptoChart: React.FC<{ cryptoId: string }> = ({ cryptoId }) => {
     // Tipamos el estado chartData correctamente con los tipos de Chart.js

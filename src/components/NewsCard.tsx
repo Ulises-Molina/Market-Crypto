@@ -13,7 +13,7 @@ export const NewsCard: React.FC<NewsArticle> = ({ title, description, url, publi
         <div className="flex flex-col gap-3 px-6 py-5 text-white border rounded bg-neutral-950 border-white/20">
             <p className="text-2xl font-bold line-clamp-1">{title}</p>
             <p className="text-sm">{formattedDate}</p>
-            <p className="line-clamp-3">{description}</p>
+            <p className="line-clamp-2">{description}</p>
             <a
                 href={url}
                 target="_blank"
