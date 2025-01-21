@@ -35,9 +35,6 @@ export const News = () => {
         <motion.section
             id="noticias"
             className="xl:h-[70vh] bg-black flex flex-col items-center justify-evenly"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity:  1}}
-            transition={{ duration: 1, ease: 'easeOut' }}
         >
             <motion.h3
                 className="mt-10 text-3xl font-bold text-white"
