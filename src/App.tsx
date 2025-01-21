@@ -4,6 +4,7 @@ import { Hero } from "./sections/Hero"
 import { Features } from "./sections/Features"
 import { News } from "./sections/News"
 import { Footer } from "./sections/Footer"
+import { Analytics } from "@vercel/analytics/react"
 
 export const App = () => {
   return (
@@ -14,6 +15,7 @@ export const App = () => {
     <Features/>
     <News/>
     <Footer/>
+    <Analytics/>
     </>
   )
 }
