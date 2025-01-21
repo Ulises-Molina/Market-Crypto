@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+@font-face {
+  font-family: 'Geist';
+  src: url('/fonts/GeistMono-Regular.tff') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Geist';
+  src: url('/fonts/GeistMono-Bold.tff') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  min-width: 440px;
+}
+
+#hero {
+  background-image: url("/port.avif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
