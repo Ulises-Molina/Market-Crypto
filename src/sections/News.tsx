@@ -20,7 +20,11 @@ export const News = () => {
                 const data = await response.json();
                 setNews(data.articles);
             } catch (error) {
-                setError(error.message + ", intente mas tarde. Probablemente se hayan superado las consultas diarias de API");
+                if (error instanceof Error) {
+                    setError(error.message + ", intente más tarde. Probablemente se hayan superado las consultas diarias de API");
+                } else {
+                    setError("Ocurrió un error inesperado, intente más tarde.");
+                }
             }
         };
         fetchNews();
